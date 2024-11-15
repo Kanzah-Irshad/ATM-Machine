@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATM Machine Simulation</title>
+  <link rel="stylesheet" href="./asset/style.css">
+</head>
+<body>
+  <!-- Welcome Screen -->
+  <div id="welcomeScreen" class="screen active">
+    <h1>Welcome to the ATM</h1>
+    <p>Please set a 4-digit PIN to begin.</p>
+    <div class="pin-input">
+      <input type="password" id="setPin" maxlength="4" placeholder="Set 4-digit PIN">
+      <span class="toggle-visibility" onclick="toggleVisibility('setPin')">&#128065;</span>
+    </div>
+    <button onclick="setPin()">Set PIN</button>
+  </div>
+
+  <!-- Card Insertion Screen -->
+  <div id="cardInsertScreen" class="screen">
+    <h1>Insert Your Card</h1>
+    <img src="./asset/atm card slot.webp" alt="Insert Card" class="card-slot" onclick="insertCard()">
+  </div>
+
+  <!-- PIN Verification Screen -->
+  <div id="pinVerifyScreen" class="screen">
+    <h1>Enter Your PIN</h1>
+    <div class="pin-input">
+      <input type="password" id="verifyPin" maxlength="4" placeholder="Enter 4-digit PIN">
+      <span class="toggle-visibility" onclick="toggleVisibility('verifyPin')">&#128065;</span>
+    </div>
+    <button onclick="verifyPin()">Enter</button>
+    <button onclick="resetPin()">Forgot PIN? Reset PIN</button>
+  </div>
+
+  <!-- Options Screen -->
+  <div id="optionsScreen" class="screen">
+    <h1>Select Transaction</h1>
+    <div class="transaction-options">
+      <button onclick="selectOption('deposit')">Deposit</button>
+      <button onclick="selectOption('withdraw')">Withdraw</button>
+      <button onclick="selectOption('transfer')">Transfer Money</button>
+      <button onclick="selectOption('checkBalance')">Check Balance</button>
+    </div>
+  </div>
+
+  <!-- Transaction Screen -->
+  <div id="transactionScreen" class="screen">
+    <h1 id="transactionTitle">Transaction</h1>
+    <input type="number" id="amount" placeholder="Enter Amount" style="display: none;">
+    <input type="text" id="accountNumber" placeholder="Enter Account Number" style="display: none;">
+    <button onclick="completeTransaction()">Proceed</button>
+  </div>
+
+  <!-- Thank You Screen -->
+  <div id="thankYouScreen" class="screen">
+    <h1>Thank You!</h1>
+    <p>Your transaction is complete.</p>
+  </div>
+
+  <script src="./asset/script.js"></script>
+</body>
+</html>
